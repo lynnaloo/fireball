@@ -1,14 +1,16 @@
 <head>
-  <title>Fireball the Dragon</title>
+  <title>Fireball</title>
 </head>
 
 <body>
-  <h1>Feed Fireball!</h1>
+  <h1>Feed the Dragon</h1>
 
-  {{> hello}}
+  {{> feed}}
 </body>
 
-<template name="hello">
-  <button>Feed Me</button>
+<template name="feed">
+  <button>Feed Fireball</button>
+
   <p>Fireball has {{counter}} pieces of dragon food left.</p>
+  <p>{{mood}}</p>
 </template>
