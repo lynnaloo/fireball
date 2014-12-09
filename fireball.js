@@ -1,23 +1,26 @@
-Players = new Meteor.Collection('players');
+Scores = new Meteor.Collection('scores');
 
 if (Meteor.isClient) {
   /**
    Sets the counter and start the game timer.
   */
   var start = function () {
-    alert("Game started!");
     Session.set("counter", 10);
+    var startTime = new Date().getTime();
     var timer = setInterval(function () {
-      // every 20 seconds (20 * 1000), subtract 1 from the counter
+      // every 10 seconds (10 * 1000), subtract 1 from the counter
       var currentCounter = Session.get("counter");
       if (currentCounter) {
-        // TODO: substract a random amount of food
         Session.set("counter", currentCounter - 1);
       } else {
+        var endTime = new Date().getTime();
+        Scores.insert({
+          score: endTime - startTime
+        });
         clearInterval(timer);
         alert("Game over!");
       }
-    }, 20 * 1000);
+    }, 10 * 1000);
   }
   // execute the start function
   start();
@@ -29,10 +32,8 @@ if (Meteor.isClient) {
     mood: function () {
       var food = Session.get("counter");
       if (!food) {
-        timer(false);
         return "Your dragon has run away!";
       }
-
       var mood = "The dragon is ";
       if (food <= 3) {
         return mood + "angry.";
@@ -53,6 +54,12 @@ if (Meteor.isClient) {
       if (currentCounter > 0 && currentCounter < 20) {
         Session.set("counter", currentCounter + 1);
       }
+    }
+  });
+
+  Template.scores.helpers({
+    scores: function () {
+      return Scores.find({}, { sort: { score: -1 }});
     }
   });
 

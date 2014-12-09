@@ -7,10 +7,11 @@
   <div class="container">
     <div class="page-header">
       <h1>Feed the Dragon</h1>
-      {{> reset}}
     </div>
 
     {{> feed}}
+    {{> scores}}
+    {{> reset}}
 
   </div>
 </body>
@@ -23,4 +24,20 @@
   <p>Fireball has {{counter}} pieces of dragon food left.</p>
   <p>{{mood}}</p>
   <p><button class="btn btn-primary">Feed Fireball</button></p>
+</template>
+
+<template name="scores">
+  <div class="page-header">
+    <h2>High Scores</h2>
+  </div>
+  <div>
+    {{#if scores}}
+      {{#each scores}}
+        <p>{{name}}</p>
+        <p>{{score}}</p>
+      {{/each}}
+    {{else}}
+      <p>No High Scores</p>
+    {{/if}}
+  </div>
 </template>
