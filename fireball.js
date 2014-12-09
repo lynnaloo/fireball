@@ -1,16 +1,26 @@
-if (Meteor.isClient) {
-  // counter starts at 10
-  Session.setDefault("counter", 10);
+Players = new Meteor.Collection('players');
 
-  var timer = setInterval(function () {
-    // every 20 seconds, subtract 1 from the counter
-    var currentCounter = Session.get("counter");
-    if (currentCounter) {
-      Session.set("counter", currentCounter - 1);
-    } else {
-      clearInterval(timer);
-    }
-  }, 20 * 1000);
+if (Meteor.isClient) {
+  /**
+   Sets the counter and start the game timer.
+  */
+  var start = function () {
+    alert("Game started!");
+    Session.set("counter", 10);
+    var timer = setInterval(function () {
+      // every 20 seconds (20 * 1000), subtract 1 from the counter
+      var currentCounter = Session.get("counter");
+      if (currentCounter) {
+        // TODO: substract a random amount of food
+        Session.set("counter", currentCounter - 1);
+      } else {
+        clearInterval(timer);
+        alert("Game over!");
+      }
+    }, 20 * 1000);
+  }
+  // execute the start function
+  start();
 
   Template.feed.helpers({
     counter: function () {
@@ -19,7 +29,8 @@ if (Meteor.isClient) {
     mood: function () {
       var food = Session.get("counter");
       if (!food) {
-        return "Your dragon has run away!"
+        timer(false);
+        return "Your dragon has run away!";
       }
 
       var mood = "The dragon is ";
@@ -35,14 +46,19 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.hello.events({
+  Template.feed.events({
     'click button': function () {
       // increment the counter when button is clicked
       var currentCounter = Session.get("counter");
       if (currentCounter > 0 && currentCounter < 20) {
         Session.set("counter", currentCounter + 1);
       }
-      // TODO: alert that dragon is full, or that game is over
+    }
+  });
+
+  Template.reset.events({
+    'click button': function () {
+      start();
     }
   });
 }
