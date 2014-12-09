@@ -15,6 +15,20 @@ Fireball is a simple web application that can be used as learning tool for kids 
 learning to write JavaScript. This application uses Bootstrap 3 for styling and MongoDB for
 the server.
 
+To try out the full application:
+
+```
+git clone https://github.com/lynnaloo/fireball.git
+cd fireball
+meteor
+```
+
+Navigate to `http://localhost:3000` in your browser.
+
+To try out the application by developing in stages: 
+
+[https://github.com/lynnaloo/fireball/wiki](https://github.com/lynnaloo/fireball/wiki)
+
 ### Requirements
 
 Fireball the dragon begins the game in a content mood with 10 pieces of food. Fireball
