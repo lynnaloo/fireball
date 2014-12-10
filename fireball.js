@@ -67,7 +67,7 @@ if (Meteor.isClient) {
 
   Template.reset.events({
     'click button': function () {
-      clearInterval(timer);
+      Meteor.clearInterval(timer);
       start();
     }
   });
