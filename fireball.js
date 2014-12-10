@@ -61,7 +61,7 @@ if (Meteor.isClient) {
 
   Template.scores.helpers({
     scores: function () {
-      return Scores.find({}, { sort: { score: -1 }});
+      return Scores.find({}, { sort: { score: -1 }, limit: 10});
     }
   });
 
