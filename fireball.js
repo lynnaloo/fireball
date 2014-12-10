@@ -1,4 +1,4 @@
-Scores = new Meteor.Collection('scores');
+Scores = new Mongo.Collection('scores');
 
 if (Meteor.isClient) {
   /**
