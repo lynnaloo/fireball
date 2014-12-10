@@ -10,7 +10,7 @@ if (Meteor.isClient) {
     var timer = setInterval(function () {
       // every 10 seconds (10 * 1000), subtract 1 from the counter
       var currentCounter = Session.get("counter");
-      if (currentCounter) {
+      if (currentCounter > 0) {
         Session.set("counter", currentCounter - 1);
       } else {
         clearInterval(timer);
@@ -31,7 +31,7 @@ if (Meteor.isClient) {
     },
     mood: function () {
       var food = Session.get("counter");
-      if (!food) {
+      if (food === 0) {
         return "Your dragon has run away!";
       }
       var mood = "The dragon is ";
