@@ -13,12 +13,12 @@ if (Meteor.isClient) {
       if (currentCounter) {
         Session.set("counter", currentCounter - 1);
       } else {
+        clearInterval(timer);
+        alert("Game over!");
         var endTime = new Date().getTime();
         Scores.insert({
           score: endTime - startTime
         });
-        clearInterval(timer);
-        alert("Game over!");
       }
     }, 10 * 1000);
   }
