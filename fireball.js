@@ -1,19 +1,21 @@
 Scores = new Mongo.Collection('scores');
 
 if (Meteor.isClient) {
+  Session.setDefault("counter", 10);
+  var timer = null;
   /**
    Sets the counter and start the game timer.
   */
   var start = function () {
-    Session.set("counter", 10);
     var startTime = new Date().getTime();
-    var timer = setInterval(function () {
+    Session.set("counter", 10);
+    timer = Meteor.setInterval(function () {
       // every 10 seconds (10 * 1000), subtract 1 from the counter
       var currentCounter = Session.get("counter");
       if (currentCounter > 0) {
         Session.set("counter", currentCounter - 1);
       } else {
-        clearInterval(timer);
+        Meteor.clearInterval(timer);
         alert("Game over!");
         var endTime = new Date().getTime();
         Scores.insert({
@@ -23,7 +25,7 @@ if (Meteor.isClient) {
     }, 10 * 1000);
   }
   // execute the start function
-  start();
+  Meteor.startup(start);
 
   Template.feed.helpers({
     counter: function () {
@@ -65,6 +67,7 @@ if (Meteor.isClient) {
 
   Template.reset.events({
     'click button': function () {
+      clearInterval(timer);
       start();
     }
   });
