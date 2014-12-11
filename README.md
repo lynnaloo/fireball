@@ -27,7 +27,7 @@ meteor
 
 Navigate to `http://localhost:3000` in your browser.
 
-*To try out the application by developing in stages:* 
+**To try out the application by developing in stages:**
 
 [https://github.com/lynnaloo/fireball/wiki](https://github.com/lynnaloo/fireball/wiki)
 
