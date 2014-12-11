@@ -9,6 +9,8 @@ then he leaves the castle.
 
 Meteor is a platform for creating web applications in JavaScript.
 
+To get started, [install Meteor](https://www.meteor.com/install) or setup a meteor virtual machine on [Nitrous.io](http://www.nitrous.com).
+
 ## Fireball
 
 Fireball is a simple web application that can be used as learning tool for kids and teens
@@ -25,9 +27,15 @@ meteor
 
 Navigate to `http://localhost:3000` in your browser.
 
-To try out the application by developing in stages: 
+*To try out the application by developing in stages:* 
 
 [https://github.com/lynnaloo/fireball/wiki](https://github.com/lynnaloo/fireball/wiki)
+
+To deploy your application, create an account on `www.meteor.com` and run this command in the terminal:
+
+```
+meteor deploy {your-app-name}.meteor.com
+```
 
 ### Requirements
 
