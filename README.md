@@ -1,6 +1,8 @@
 Fireball the Dragon
 ========
 
+<img width='250' src='https://cloud.githubusercontent.com/assets/1610195/5512472/f8cc5636-87a9-11e4-8d52-429bf3704b2a.png'>
+
 Fireball is a dragon that lives in pretty nice castle, but he needs you to be sure that
 he has plenty dragon food. If he gets too hungry, then he gets angry. If he gets angry,
 then he leaves the castle.
@@ -45,3 +47,7 @@ will take up to 20 pieces before he becomes full. As time goes on, Fireball eats
 * At 5 pieces, he starts to get hungry
 * At 3 pieces, he is very hungry and starts to get angry
 * At 0 pieces, he is very angry and ends the game
+
+### Contributors
+
+Application created by @lynnaloo. Fireball the Dragon graphic by @aurately.
