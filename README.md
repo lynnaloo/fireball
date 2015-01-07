@@ -11,7 +11,7 @@ then he leaves the castle.
 
 Meteor is a platform for creating web applications in JavaScript.
 
-To get started, [install Meteor](https://www.meteor.com/install) or setup a meteor virtual machine on [Nitrous.io](http://www.nitrous.com).
+To get started, [install Meteor](https://www.meteor.com/install) or setup a meteor virtual machine on [Nitrous.io](http://www.nitrous.io).
 
 ## Fireball
 
