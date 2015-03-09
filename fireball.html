@@ -8,6 +8,7 @@
     <p><img src="/fireball.png"></p>
 
     {{> feed}}
+    {{> food}}
     {{> reset}}
     {{> scores}}
   </div>
@@ -21,6 +22,11 @@
   <p>Fireball has {{counter}} pieces of dragon food left.</p>
   <p>{{mood}}</p>
   <button class="btn btn-primary">Feed Fireball</button>
+</template>
+
+<template name="food">
+  <p><h2>Feed Fireball {{food}}</h2></p>
+  <button class="btn btn-primary">Switch Food</button><br/>
 </template>
 
 <template name="scores">

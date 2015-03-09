@@ -2,6 +2,7 @@ Scores = new Mongo.Collection('scores');
 
 if (Meteor.isClient) {
   Session.setDefault("counter", 10);
+  Session.setDefault("food", "Meat");
   var timer = null;
   /**
    Sets the counter and start the game timer.
@@ -16,8 +17,8 @@ if (Meteor.isClient) {
         Session.set("counter", currentCounter - 1);
       } else {
         Meteor.clearInterval(timer);
-        alert("Game over!");
         var endTime = new Date().getTime();
+        alert("Game over! Your score is " + (endTime - startTime));
         Scores.insert({
           score: endTime - startTime
         });
@@ -71,6 +72,33 @@ if (Meteor.isClient) {
       start();
     }
   });
+
+  Template.food.helpers({
+    food: function () {
+      return Session.get("food");
+    }
+  });
+
+  Template.food.events({
+    'click button': function () {
+      var choice = Math.floor((Math.random() *3) +1);
+      if (choice == 1) {
+        Session.set("food","People");
+        Session.set("counter", Session.get("counter")-3);
+        alert("We don't like eating people -3 points");
+      } else if (choice == 2) {
+        Session.set("food","Vegetables");
+        Session.set("counter", Session.get("counter") +2);
+        alert("+2 Bonus points");
+      } else {
+        Session.set("food","Meat");
+        Session.set("counter", Session.get("counter")+1);
+        alert("+1 Bonus points")
+      }
+
+    }
+  });
+
 }
 
 if (Meteor.isServer) {
