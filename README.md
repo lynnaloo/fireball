@@ -33,7 +33,9 @@ Navigate to `http://localhost:3000` in your browser.
 
 [https://github.com/lynnaloo/fireball/wiki](https://github.com/lynnaloo/fireball/wiki)
 
-To deploy your application, create an account on `www.meteor.com` and run this command in the terminal:
+To deploy your application, create an account on `www.meteor.com` and sign up for a Galaxy account.
+Meteor now uses "pay-as-you-go" plans for the applications that you decide to host. If you decide
+to sign up for Galaxy, you can run this command in the terminal to deploy changes to your site:
 
 ```
 meteor deploy {your-app-name}.meteor.com
