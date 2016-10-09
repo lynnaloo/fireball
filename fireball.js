@@ -18,9 +18,15 @@ if (Meteor.isClient) {
       }
       else {
         const endTime = new Date().getTime();
+        const userName = prompt('Tell your name young tamer.');
 
-        Meteor.clearInterval(timer);        
+        if (userName === '') {
+          userName = 'Tamer_' + endTime;
+        }
+
+        Meteor.clearInterval(timer);
         Scores.insert({
+          name: userName,
           score: endTime - startTime
         });
         alert("Game over! Your score is " + (endTime - startTime));
