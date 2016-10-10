@@ -6,37 +6,5 @@
   <div class="container">
     <h1 class="page-header">Feed the Dragon</h1>
     <p><img src="/fireball.png"></p>
-
-    {{> feed}}
-    {{> food}}
-    {{> reset}}
-    {{> scores}}
   </div>
 </body>
-
-<template name="reset">
-  <button class="btn btn-success">Reset Game</button>
-</template>
-
-<template name="feed">
-  <p>Fireball has {{counter}} pieces of dragon food left.</p>
-  <p>{{mood}}</p>
-  <button class="btn btn-primary">Feed Fireball</button>
-</template>
-
-<template name="food">
-  <p><h2>Feed Fireball {{food}}</h2></p>
-  <button class="btn btn-primary">Switch Food</button><br/>
-</template>
-
-<template name="scores">
-    <h2 class="page-header">High Scores</h2>
-    {{#if scores}}
-      {{#each scores}}
-        <p>{{name}}</p>
-        <p>{{score}}</p>
-      {{/each}}
-    {{else}}
-      <p>No High Scores</p>
-    {{/if}}
-</template>

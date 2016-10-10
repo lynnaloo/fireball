@@ -1,0 +1,15 @@
+<body>
+  {{> scores}}
+</body>
+
+<template name="scores">
+    <h2 class="page-header">High Scores</h2>
+    {{#if scores}}
+      {{#each scores}}
+        <p>{{name}}</p>
+        <p>{{score}}</p>
+      {{/each}}
+    {{else}}
+      <p>No High Scores</p>
+    {{/if}}
+</template>
