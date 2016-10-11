@@ -4,6 +4,7 @@ import { Scores } from '../imports/api/scores.js';
 
 import '../imports/ui/controls/controls.js';
 import '../imports/ui/scores/scores.js';
+import '../imports/startup/accounts-config.js';
 
 Session.setDefault("counter", 10);
 Session.setDefault("food", "Meat");
@@ -22,8 +23,23 @@ const start = function () {
     }
     else {
       const endTime = new Date().getTime();
-      var userName = prompt('Tell your name young tamer.');
 
+      if (typeof Meteor.user() !== 'undefined' && Meteor.user() !== null) {
+        // Standard login username
+        var userName = Meteor.user().username;
+
+        // Github login username
+        if (typeof userName === 'undefined' || userName === null) {
+          userName = Meteor.user().profile.name;
+        }
+      }
+
+      // User defined username
+      if (typeof userName === 'undefined' || userName === null) {
+        userName = prompt('Tell your name young tamer.');
+      }
+
+      // Default username
       if (typeof userName === 'undefined' || userName === null) {
         userName = 'Tamer_' + endTime;
       }
