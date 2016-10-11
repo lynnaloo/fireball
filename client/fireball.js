@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import { Scores } from '../imports/api/scores.js';
 
 import '../imports/ui/controls/controls.js';
