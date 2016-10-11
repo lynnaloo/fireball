@@ -22,7 +22,7 @@ const start = function () {
       const endTime = new Date().getTime();
       var userName = prompt('Tell your name young tamer.');
 
-      if (userName === '') {
+      if (typeof userName === 'undefined' || userName === null) {
         userName = 'Tamer_' + endTime;
       }
 
@@ -35,6 +35,13 @@ const start = function () {
     }
   }, 10 * 1000);
 };
+
+Template.reset.events({
+  'click button': function () {
+    Meteor.clearInterval(timer);
+    start();
+  }
+});
 
 // execute the start function
 Meteor.startup(start);

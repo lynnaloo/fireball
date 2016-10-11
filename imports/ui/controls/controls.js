@@ -41,13 +41,6 @@ Template.feed.events({
   }
 });
 
-Template.reset.events({
-  'click button': function () {
-    Meteor.clearInterval(timer);
-    start();
-  }
-});
-
 Template.food.helpers({
   food: function () {
     return Session.get("food");

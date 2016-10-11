@@ -3,13 +3,14 @@
 </body>
 
 <template name="scores">
+  <div class="container">
     <h2 class="page-header">High Scores</h2>
     {{#if scores}}
       {{#each scores}}
-        <p>{{name}}</p>
-        <p>{{score}}</p>
+        <p>{{name}} - {{score}}</p>
       {{/each}}
     {{else}}
       <p>No High Scores</p>
     {{/if}}
+  </div>
 </template>
