@@ -6,7 +6,7 @@
 autopublish@1.0.7
 insecure@1.0.7
 mizzao:bootstrap-3
-accounts-ui@1.1.9
+accounts-ui
 accounts-github@1.0.10
 
 meteor-base@1.0.4
@@ -26,3 +26,4 @@ standard-minifier-css@1.2.0_1
 standard-minifier-js@1.2.0_1
 shell-server
 ecmascript
+accounts-password
